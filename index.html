@@ -79,13 +79,95 @@
       /* Estilos para los cupones */
       .cupon-container {
         border: 1px solid #333;
-        padding: 15px;
+        padding: 0;
         background-color: #ffffff;
         box-sizing: border-box;
-        font-weight: bold;
-        text-align: center;
+        font-size: 12px;
+        text-align: left;
+      }
+      
+      /* Estilos para el encabezado del cupón */
+      .cupon-header {
+        background-color: transparent;
+        padding: 5px 12px;
+        text-align: left;
+        font-weight: normal;
         font-size: 14px;
+        border-bottom: 1px solid #333;
         letter-spacing: 1px;
+      }
+      
+      .cupon-header .empresa {
+        font-weight: bold;
+      }
+      
+      /* Contenido del cupón */
+      .cupon-content {
+        padding: 12px;
+      }
+      
+      /* Secciones de información */
+      .info-section {
+        margin-bottom: 8px;
+      }
+      
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+        font-size: 11px;
+        line-height: 1.3;
+      }
+      
+      .label {
+        font-weight: bold;
+        min-width: 110px;
+        margin-right: 5px;
+        text-align: right;
+      }
+      
+      .value {
+        flex: 1;
+        border-bottom: 1px dotted #666;
+        margin-right: 15px;
+        padding-bottom: 1px;
+      }
+      
+      .label-right {
+        font-weight: bold;
+        min-width: 100px;
+        margin-right: 5px;
+        text-align: right;
+      }
+      
+      .value-right {
+        min-width: 80px;
+        border-bottom: 1px dotted #666;
+        padding-bottom: 1px;
+      }
+      
+      /* Línea separadora */
+      .separator-line {
+        border-top: 1px solid #333;
+        margin: 8px 0;
+      }
+      
+      /* Sección garante */
+      .garante-section {
+        margin: 4px 0;
+      }
+      
+      /* Disclaimer */
+      .disclaimer {
+        margin-top: 8px;
+      }
+      
+      .disclaimer-text {
+        font-size: 9px;
+        line-height: 1.2;
+        margin: 0;
+        text-align: justify;
+        font-style: italic;
       }
       
       /* Separación entre cupones */
@@ -167,9 +249,35 @@
         .cupon-container {
           border: 1px solid #000 !important;
           background-color: transparent !important;
-          padding: 8mm !important;
-          font-size: 12px !important;
+          padding: 0 !important;
+          font-size: 10px !important;
           margin: 0 !important;
+        }
+        
+        .cupon-header {
+          background-color: transparent !important;
+          border-bottom: 1px solid #000 !important;
+          padding: 2mm !important;
+          font-size: 12px !important;
+          text-align: left !important;
+          font-weight: normal !important;
+        }
+        
+        .cupon-header .empresa {
+          font-weight: bold !important;
+        }
+        
+        .cupon-content {
+          padding: 3mm !important;
+        }
+        
+        .info-row {
+          font-size: 9px !important;
+          margin-bottom: 2px !important;
+        }
+        
+        .disclaimer-text {
+          font-size: 8px !important;
         }
       }
       
@@ -205,12 +313,114 @@
               <div class="row g-2">
                 <div class="col-6">
                   <div class="cupon-container">
-                    CUPÓN COBRADOR
+                    <div class="cupon-header">
+                      <span class="empresa">LIADOS</span> Créditos Personales
+                    </div>
+                    
+                    <div class="cupon-content">
+                      <div class="info-section">
+                        <div class="info-row">
+                          <span class="label">Apellido y nombre:</span>
+                          <span class="value">{cliente_apellido_nombre}</span>
+                          <span class="label-right">Crédito nro:</span>
+                          <span class="value-right">{credito_nro}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                          <span class="label">Domicilio:</span>
+                          <span class="value">{cliente_domicilio}</span>
+                          <span class="label-right">Cuota:</span>
+                          <span class="value-right">{x/z}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                          <span class="label">DNI:</span>
+                          <span class="value">{cliente_dni}</span>
+                          <span class="label-right">Monto a abonar:</span>
+                          <span class="value-right">{monto_cuota}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                          <span class="label">Monto del crédito:</span>
+                          <span class="value">{monto_credito}</span>
+                          <span class="label-right">Vencimiento:</span>
+                          <span class="value-right">{fecha_vencimiento}</span>
+                        </div>
+                      </div>
+                      
+                      <div class="separator-line"></div>
+                      
+                      <div class="garante-section">
+                        <div class="info-row">
+                          <span class="label">Garante:</span>
+                          <span class="value">{garante_apellido_nombre}</span>
+                        </div>
+                      </div>
+                      
+                      <div class="separator-line"></div>
+                      
+                      <div class="disclaimer">
+                        <p class="disclaimer-text">
+                          C. Civil se hace reserva de reclamar intereses punitorios y compensatorios por pagos posteriores a la fecha de vencimiento.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="cupon-container">
-                    CUPÓN CLIENTE
+                    <div class="cupon-header">
+                      <span class="empresa">LIADOS</span> Créditos Personales
+                    </div>
+                    
+                    <div class="cupon-content">
+                      <div class="info-section">
+                        <div class="info-row">
+                          <span class="label">Apellido y nombre:</span>
+                          <span class="value">{cliente_apellido_nombre}</span>
+                          <span class="label-right">Crédito nro:</span>
+                          <span class="value-right">{credito_nro}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                          <span class="label">Domicilio:</span>
+                          <span class="value">{cliente_domicilio}</span>
+                          <span class="label-right">Cuota:</span>
+                          <span class="value-right">{x/z}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                          <span class="label">DNI:</span>
+                          <span class="value">{cliente_dni}</span>
+                          <span class="label-right">Monto a abonar:</span>
+                          <span class="value-right">{monto_cuota}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                          <span class="label">Monto del crédito:</span>
+                          <span class="value">{monto_credito}</span>
+                          <span class="label-right">Vencimiento:</span>
+                          <span class="value-right">{fecha_vencimiento}</span>
+                        </div>
+                      </div>
+                      
+                      <div class="separator-line"></div>
+                      
+                      <div class="garante-section">
+                        <div class="info-row">
+                          <span class="label">Garante:</span>
+                          <span class="value">{garante_apellido_nombre}</span>
+                        </div>
+                      </div>
+                      
+                      <div class="separator-line"></div>
+                      
+                      <div class="disclaimer">
+                        <p class="disclaimer-text">
+                          C. Civil se hace reserva de reclamar intereses punitorios y compensatorios por pagos posteriores a la fecha de vencimiento.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
