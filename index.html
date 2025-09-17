@@ -28,11 +28,11 @@
       }
       
       .a4-content {
-        padding: 15px;
+        padding: 15px 10px;
         height: 100%;
         box-sizing: border-box;
         border: 1px solid #e9ecef;
-        margin: 10px;
+        margin: 10px 5px;
         background-color: #fafafa;
       }
       
@@ -76,6 +76,24 @@
         font-size: 13px;
       }
       
+      /* Estilos para los cupones */
+      .cupon-container {
+        border: 1px solid #333;
+        padding: 15px;
+        background-color: #ffffff;
+        box-sizing: border-box;
+        font-weight: bold;
+        text-align: center;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+      
+      /* Separación entre cupones */
+      .row.g-2 {
+        margin: 0;
+        --bs-gutter-x: 10px;
+      }
+      
       @media print {
         * {
           margin: 0 !important;
@@ -112,7 +130,7 @@
         
         .a4-content {
           margin: 0 !important;
-          padding: 15mm !important;
+          padding: 10mm 5mm !important;
           width: 100% !important;
           height: 100% !important;
           border: none !important;
@@ -128,14 +146,30 @@
         }
         
         /* Asegurar que el contenido no se desborde */
-        h3, h5, p, div {
+        h3, h4, h5, p, div {
           page-break-inside: avoid !important;
-          margin-bottom: 8px !important;
+          margin-bottom: 6px !important;
         }
         
         .row {
           display: flex !important;
           flex-wrap: nowrap !important;
+          margin: 0 !important;
+          gap: 5mm !important;
+        }
+        
+        .col-6 {
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+        
+        /* Estilos de impresión para los cupones */
+        .cupon-container {
+          border: 1px solid #000 !important;
+          background-color: transparent !important;
+          padding: 8mm !important;
+          font-size: 12px !important;
+          margin: 0 !important;
         }
       }
       
@@ -167,17 +201,16 @@
             
             <!-- Área de contenido -->
             <div class="a4-content">
-              <h3 class="mb-3">Marco de Diseño A4 Horizontal</h3>
-              <p class="mb-3">Este es tu espacio de trabajo con las proporciones exactas de una hoja A4 en orientación horizontal.</p>
               
-              <div class="row">
-                <div class="col-md-8">
-                  <h5>Área de diseño principal</h5>
-                  <p>Aquí puedes colocar el contenido de tu diseño. El marco se ajusta automáticamente a diferentes tamaños de pantalla manteniendo las proporciones A4.</p>
+              <div class="row g-2">
+                <div class="col-6">
+                  <div class="cupon-container">
+                    CUPÓN COBRADOR
+                  </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="border p-2 bg-white rounded">
-                    <small><strong>Proporción:</strong> 297:210 (1.414:1)</small>
+                <div class="col-6">
+                  <div class="cupon-container">
+                    CUPÓN CLIENTE
                   </div>
                 </div>
               </div>
